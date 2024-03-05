@@ -14,8 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 public class OrderItem extends BaseModel{
-    @ManyToOne
-    Product product;
+    long productId;
     int quantity;
     double totalPrice;
     LocalDateTime deliveryDate;

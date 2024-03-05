@@ -21,9 +21,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order extends BaseModel{
-    @JsonIgnore
-    @ManyToOne
-    UserEntity user;
+    int userId;
     @OneToMany
     List<OrderItem> orderItems;
     OrderStatus orderStatus;
@@ -31,7 +29,6 @@ public class Order extends BaseModel{
     LocalDateTime createdAt;
     @UpdateTimestamp
     LocalDateTime updatedAt;
-    @ManyToOne
-    Address shippingAddress;
+    int addressId;
     UUID paymentID;
 }

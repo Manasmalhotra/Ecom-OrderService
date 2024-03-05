@@ -1,12 +1,11 @@
 package com.example.orderservice.service;
 
-import com.example.orderservice.dto.OrderRequestDTO;
 import com.example.orderservice.dto.OrderResponseDTO;
-import com.example.orderservice.models.Address;
-import com.example.orderservice.models.Order;
-import com.example.orderservice.models.Payment;
+import com.example.orderservice.models.OrderStatus;
+
 
 public interface OrderService {
 
-    OrderResponseDTO placeOrder(int userId, int selectedAddressId, Payment payment);
+    OrderResponseDTO placeOrder(int userId, int selectedAddressId);
+    void updateOrder(long orderId, OrderStatus orderStatus);
 }

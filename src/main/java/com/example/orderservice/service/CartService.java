@@ -5,9 +5,10 @@ import com.example.orderservice.models.Cart;
 import java.util.UUID;
 
 public interface CartService {
-    Cart addToCart(UUID cartId,UUID productId);
+    Cart addToCart(UUID cartId,long productId);
 
-    Cart createCart();
-    Cart getCart(int userId);
-    boolean allCartItemsAvailableOnCheckout(UUID cartId);
+    Cart createCart(long userId);
+    Cart removeItemFromCart(UUID cartId,long cartItemId);
+    Cart updateCartItem(UUID cartId,long cartItemId,int quantity);
+    Cart getCart(long userId);
 }

@@ -1,6 +1,7 @@
 package com.example.orderservice.models;
 
 public enum PaymentStatus {
+    PENDING("pending"),
     CREATED("created"),
     AUTHORIZED("authorized"),
     CAPTURED("captured"),
