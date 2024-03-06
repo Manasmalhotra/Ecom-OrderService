@@ -10,9 +10,8 @@ import lombok.Setter;
 public class CartItem{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    @ManyToOne
-    Product product;
+    long id;
+    long productId;
     int quantity;
-    double totalPrice;
+    double pricePerItem;
 }

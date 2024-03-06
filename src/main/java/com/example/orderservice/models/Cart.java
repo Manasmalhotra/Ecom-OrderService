@@ -1,9 +1,6 @@
 package com.example.orderservice.models;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Cart extends BaseModel{
-    @OneToOne
-    UserEntity user;
-    @ManyToMany(cascade = CascadeType.ALL)
+    long userId;
+    @OneToMany
     List<CartItem> cartItems;
 }

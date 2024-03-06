@@ -1,11 +1,13 @@
 package com.example.orderservice.models;
 
 public enum OrderStatus {
-    PACKAGING("packaging"),
-    SHIPPED("shipped"),
-    OUT_FOR_DELIVERY("outfordelivery"),
-    DELIVERED("delivered");
-
+    PENDING("Payment Pending"),
+    PAYMENT_FAILED("Payment Failed"),
+    CANCELLED("Cancelled"),
+    PACKAGING("Packaging the order"),
+    SHIPPED("Order Shipped"),
+    OUT_FOR_DELIVERY("Order is out for delivery"),
+    DELIVERED("Order Delivered");
     String value;
 
     OrderStatus(String value) {
@@ -14,4 +16,5 @@ public enum OrderStatus {
     public String getValue(){
         return value;
     }
+
 }

@@ -8,14 +8,8 @@ import lombok.*;
 
 import java.util.UUID;
 
-@Entity(name="Payment")
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+
 public class Payment {
-    @Id
     UUID id;
     int amount;
     String currency;
