@@ -2,7 +2,6 @@ package com.example.orderservice.service;
 
 import com.example.orderservice.dto.OrderResponseDTO;
 import com.example.orderservice.exceptions.ResourceNotFoundException;
-import com.example.orderservice.externalservices.AddressService;
 import com.example.orderservice.externalservices.UserService;
 import com.example.orderservice.models.*;
 import com.example.orderservice.repository.OrderRepository;
@@ -17,13 +16,11 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService{
     OrderRepository orderRepository;
     UserService userService;
-    AddressService addressService;
     CartService cartService;
-    public OrderServiceImpl(OrderRepository orderRepository, UserService userService,CartService cartService,AddressService addressService){
+    public OrderServiceImpl(OrderRepository orderRepository, UserService userService,CartService cartService){
         this.orderRepository=orderRepository;
         this.userService=userService;
         this.cartService=cartService;
-        this.addressService=addressService;
     }
 
     @Override
@@ -35,7 +32,7 @@ public class OrderServiceImpl implements OrderService{
         order.setOrderItems(orderItems);
         order.setCreatedAt(LocalDateTime.now());
         order.setUpdatedAt(LocalDateTime.now());
-        Address address=addressService.getAddress(userId,selectedAddressId);
+        Address address=userService.getAddress(userId,selectedAddressId);
         /*StringBuilder shippingAddress=new StringBuilder(address.getHouseNumber()+","+address.getStreetName()+address.getArea()+address.getPinCode());
         if(address.getLandmark()!=null){
             shippingAddress.append(address.getLandmark());

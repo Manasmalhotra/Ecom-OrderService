@@ -13,8 +13,9 @@ import java.util.Date;
 
 @Component
 public class JwtTokenProvider {
-    @Value(value="${app.jwt-secret")
-    private String jwtSecret;
+
+    private String jwtSecret="e58b1787cf04010493fe722e9129e1e4c9876b91ddb67683dcf28d87d467cc1a";
+
 
     private Key key(){
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
@@ -26,15 +27,19 @@ public class JwtTokenProvider {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-        String userId = (String) claims.get("userId");
+        String userId = ((Integer) claims.get("userId")).toString();
+        System.out.println("USER ID: "+userId);
         return userId;
     }
     public boolean validateToken(String token){
         try {
             Claims claims=Jwts.parserBuilder().setSigningKey(key()).build().parseClaimsJws(token).getBody();
-            Date expiryDate= (Date) claims.get("expiryAt");
+            System.out.println("HELLO from validate! ");
+            System.out.println(claims.get("expiryAt"));
+            Date expiryDate= new Date((Long) claims.get("expiryAt"));
             String mail=(String) claims.get("email");
-            System.out.println("HELLO from validate! "+mail);
+            Date currentDate=new Date();
+            System.out.println("HELLO from validate! "+currentDate);
             return !(expiryDate.before(new Date()));
         }
         catch(MalformedJwtException e){

@@ -16,7 +16,6 @@ import java.util.List;
 @Getter
 @Setter
 public class UserEntity {
-
     int id;
     String firstName;
     String lastName;
