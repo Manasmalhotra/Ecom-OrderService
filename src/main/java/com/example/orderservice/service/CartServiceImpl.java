@@ -29,6 +29,7 @@ public class CartServiceImpl implements CartService {
     }
     @Override
     public Cart createCart(long userId) {
+        System.out.println("Cart");
         Cart cart=new Cart();
         cart.setUserId(userId);
         cart.setCartItems(new ArrayList<>());
@@ -71,6 +72,11 @@ public class CartServiceImpl implements CartService {
     @Override
     public Cart getCart(long userId) {
         return cartRepository.findByUserId(userId);
+    }
+
+    @Override
+    public List<Cart> getAllCarts() {
+        return cartRepository.findAll();
     }
 
 

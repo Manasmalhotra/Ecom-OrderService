@@ -3,7 +3,7 @@ package com.example.orderservice.models;
 import jakarta.persistence.Entity;
 import lombok.*;
 
-@Entity
+
 @Getter
 @Setter
 @Builder

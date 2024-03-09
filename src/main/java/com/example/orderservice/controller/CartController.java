@@ -1,12 +1,12 @@
 package com.example.orderservice.controller;
 
 import com.example.orderservice.models.Cart;
-import com.example.orderservice.service.CartItemService;
 import com.example.orderservice.service.CartService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -22,6 +22,10 @@ public class CartController {
     ResponseEntity<Cart>getCartByUserId(){
         int userId=Integer.parseInt(SecurityContextHolder.getContext().getAuthentication().getName());
         return ResponseEntity.ok(cartService.getCart(userId));
+    }
+    @GetMapping("/getAllCarts")
+    ResponseEntity<List<Cart>>getAllCarts(){
+        return ResponseEntity.ok(cartService.getAllCarts());
     }
     @PostMapping("/createCart")
     ResponseEntity<Cart>createCart(){

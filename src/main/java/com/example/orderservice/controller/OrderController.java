@@ -4,7 +4,6 @@ import com.example.orderservice.dto.OrderResponseDTO;
 import com.example.orderservice.models.OrderStatus;
 import com.example.orderservice.service.OrderService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 

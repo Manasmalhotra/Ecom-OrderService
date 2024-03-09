@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -26,6 +25,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         GrantedAuthority authority=new SimpleGrantedAuthority(user.getRole().getName());
         Set<GrantedAuthority>authorities=new HashSet<>();
         authorities.add(authority);
-        return new User(user.getEmail(),user.getPassword(),authorities);
+        return new User(String.valueOf(user.getId()),user.getPassword(),authorities);
     }
 }

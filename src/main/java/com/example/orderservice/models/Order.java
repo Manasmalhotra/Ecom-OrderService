@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-@Entity(name="Order")
+@Entity(name="Orders")
 @Getter
 @Setter
 @Builder
